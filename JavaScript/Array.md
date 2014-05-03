@@ -20,7 +20,7 @@
 * [Array.prototype.pop()](#arrayprototypepop)
 * [Array.prototype.reverse()](#arrayprototypereverse)
 * [Array.prototype.sort()](#arrayprototypesort)
-* [Array.prototype.splice()][#arrayprototypesplice]
+* [Array.prototype.splice()](#arrayprototypesplice)
 * [Array.prototype.join()](#arrayprototypejoin)
 * [Array.prototype.concat()](#arrayprototypeconcat)
 * [Array.prototype.slice()](#arrayprototypeslice)
