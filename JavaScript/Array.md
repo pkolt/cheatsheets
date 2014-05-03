@@ -8,6 +8,31 @@
 * [Array.prototype.length](#arrayprototypelength)
 * [Array.prototype.constructor](#arrayprototypeconstructor)
 * [Array.isArray()](#arrayisarray-es5)
+* [Array.from()](#arrayfrom-es6)
+* [Array.of()](#arrayof-es6)
+* [Array.prototype.toString()](#arrayprototypetostring)
+* [Array.prototype.find()](#arrayprototypefind-es6)
+* [Array.prototype.findIndex()](#arrayprototypefindindex-es6)
+* [Array.prototype.fill()](#arrayprototypefill-es6)
+* [Array.prototype.unshift()](#arrayprototypeunshift)
+* [Array.prototype.shift()](#arrayprototypeshift)
+* [Array.prototype.push()](#arrayprototypepush)
+* [Array.prototype.pop()](#arrayprototypepop)
+* [Array.prototype.reverse()](#arrayprototypereverse)
+* [Array.prototype.sort()](#arrayprototypesort)
+* [Array.prototype.splice()][#arrayprototypesplice]
+* [Array.prototype.join()](#arrayprototypejoin)
+* [Array.prototype.concat()](#arrayprototypeconcat)
+* [Array.prototype.slice()](#arrayprototypeslice)
+* [Array.prototype.forEach()](#arrayprototypeforeach-es5)
+* [Array.prototype.map()](#arrayprototypemap-es5)
+* [Array.prototype.filter()](#arrayprototypefilter-es5)
+* [Array.prototype.every()](#arrayprototypeevery-es5)
+* [Array.prototype.some()](#arrayprototypesome-es5)
+* [Array.prototype.reduce()](#arrayprototypereduce-es5)
+* [Array.prototype.reduceRight()](#arrayprototypereduceright-es5)
+* [Array.prototype.indexOf()](#arrayprototypeindexof-es5)
+* [Array.prototype.lastIndexOf()](#arrayprototypelastindexof-es5)
 
 
 Синтаксис
@@ -76,23 +101,28 @@ arr.length; // первый элемент удален, но длина мас�
 
 ### Array.of() [es6]
 
+### Array.prototype.toString()
+#### `Array.prototype.toString()`
+
+Преобразует массив в строку используя метод `Array.prototype.join()`.
+
 ### Array.prototype.find() [es6]
 
 ### Array.prototype.findIndex() [es6]
 
 ### Array.prototype.fill() [es6]
 
-### Array.prototype.unshift() [chg]
+### Array.prototype.unshift()
 
-### Array.prototype.shift() [chg]
-#### Array.prototype.shift() -> Object|undefined
+### Array.prototype.shift()
+#### `Array.prototype.shift() -> Object|undefined`
 
 Удаляет первый элемент массива и возвращает его.
 После удаления первого элемента, следующие элементы сдвигаются в начало массива на одну позицию.
 Если в массиве нет элементов вернет `undefined`.
 
-### Array.prototype.push() [chg]
-#### Array.prototype.push(elem, ...) -> Number
+### Array.prototype.push()
+#### `Array.prototype.push(elem, ...) -> Number`
 
 Добавляет в конец массива один или более элементов и возвращает новую длину массива.
 
@@ -101,37 +131,37 @@ var arr = [];
 arr.push('foo', 'bar'); // 2
 ```
 
-### Array.prototype.pop() [chg]
-#### Array.prototype.pop() -> Object|undefined
+### Array.prototype.pop()
+#### `Array.prototype.pop() -> Object|undefined`
 
 Удаляет последний элемент массива и возвращает его. При удалении последнего элемента длина массива уменьшается.
 Если в массиве нет элементов вернет `undefined`.
 
-### Array.prototype.reverse() [chg]
-#### Array.prototype.reverse()
+### Array.prototype.reverse()
+#### `Array.prototype.reverse()`
 
 Изменяет порядок следования элементов в массиве на обратный.
 
-### Array.prototype.sort() [chg]
+### Array.prototype.sort()
 
-### Array.prototype.splice() [chg]
+### Array.prototype.splice()
 
-### Array.prototype.join() [nochg]
-#### Array.prototype.join([sep]) -> String
+### Array.prototype.join()
+#### `Array.prototype.join([sep]) -> String`
 
 Преобразует каждый элемент массива в строку, выполняет их конкатенацию используя в качестве разделителя запятую.
 
 Если указан необязательный параметр `sep`, то в качестве разделителя будет использоваться он.
 
-### Array.prototype.concat() [nochg]
-#### Array.prototype.concat(elem, ...) -> Array
+### Array.prototype.concat()
+#### `Array.prototype.concat(elem, ...) -> Array`
 
 Создает новый массив из исходного добавляя в него переданные элементы.
 
-### Array.prototype.slice() [nochg]
+### Array.prototype.slice()
 
-### Array.prototype.forEach() [nochg] [es5]
-#### Array.prototype.forEach(func, [ctx])
+### Array.prototype.forEach() [es5]
+#### `Array.prototype.forEach(func, [ctx])`
 
 Вызывает функцию `func` для каждого элемента массива.
 
@@ -145,8 +175,8 @@ arr.push('foo', 'bar'); // 2
 
 В разряженных массивах функция `func` не вызывается для отсутствующих элементов.
 
-### Array.prototype.map() [nochg] [es5]
-#### Array.prototype.map(func, [ctx]) -> Array
+### Array.prototype.map() [es5]
+#### `Array.prototype.map(func, [ctx]) -> Array`
 
 Выполняет обход массива передавая каждый элемент функции `func`.
 Значения возвращаемые функцией `func` образуют элементы нового массива.
@@ -159,8 +189,8 @@ arr.push('foo', 'bar'); // 2
 });
 ```
 
-### Array.prototype.filter() [nochg] [es5]
-#### Array.prototype.filter(func, [ctx]) -> Array
+### Array.prototype.filter() [es5]
+#### `Array.prototype.filter(func, [ctx]) -> Array`
 
 Возвращает новый массив из элементов которые функция `func` оценила как `true`, остальные элементы игнорируются.
 
@@ -172,8 +202,8 @@ arr.push('foo', 'bar'); // 2
 });
 ```
 
-### Array.prototype.every() [nochg] [es5]
-#### Array.prototype.every(func, [ctx]) -> Boolean
+### Array.prototype.every() [es5]
+#### `Array.prototype.every(func, [ctx]) -> Boolean`
 
 Вернет `true` если все элементы переданные в функцию `func` оцениваются как `true`, иначе вернет `false`.
 
@@ -189,8 +219,8 @@ arr.push('foo', 'bar'); // 2
 
 ### Array.prototype.some() [es5]
 
-### Array.prototype.reduce() [nochg] [es5]
-#### Array.prototype.reduce(func, [initial]) -> Object
+### Array.prototype.reduce() [es5]
+#### `Array.prototype.reduce(func, [initial]) -> Object`
 
 Вычисляет значение из элементов массива. Поочередно вызывает функцию `func` для двух его элементов,
 полученный результат вновь используется для вычисления значения со следующим элементом массива.
@@ -205,23 +235,21 @@ arr.push('foo', 'bar'); // 2
 }, 0); // 1110
 ```
 
-### Array.prototype.reduceRight() [nochg] [es5]
-#### Array.prototype.reduceRight(func, [initial]) -> Object
+### Array.prototype.reduceRight() [es5]
+#### `Array.prototype.reduceRight(func, [initial]) -> Object`
 
 Аналогично методу `Array.prototype.reduce`, выполняет вычисление справа налево.
 
-### Array.prototype.indexOf() [nochg] [es5]
-#### Array.prototype.indexOf(elem, [index]) -> Number
+### Array.prototype.indexOf() [es5]
+#### `Array.prototype.indexOf(elem, [index]) -> Number`
 
 Выполняет поиск элемента в массиве и возвращает его индекс, если элемент не найден вернет `-1`.
 
 Необязательный параметр `index` определяет элемент с которого начинается поиск.
 По умолчанию поиск начинается с первого элемента.
 
-### Array.prototype.lastIndexOf() [nochg] [es5]
-#### Array.prototype.lastIndexOf(elem, [index]) -> Number
+### Array.prototype.lastIndexOf() [es5]
+#### `Array.prototype.lastIndexOf(elem, [index]) -> Number`
 
 Аналогично методу `Array.prototype.indexOf`, выполняет поиск справа налево.
 По умолчанию поиск начинается с последнего элемента.
-
-### Array.prototype.toString()
