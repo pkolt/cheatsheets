@@ -7,7 +7,7 @@
 * [Array.prototype](#arrayprototype)
 * [Array.prototype.length](#arrayprototypelength)
 * [Array.prototype.constructor](#arrayprototypeconstructor)
-* [Array.isArray()](#arrayisarray) [es5] [nochg]
+* [Array.isArray()](#arrayisarray-es5)
 
 
 Синтаксис
@@ -67,7 +67,7 @@ arr.length; // первый элемент удален, но длина мас�
 Методы
 ------
 
-### Array.isArray()
+### Array.isArray() [es5]
 #### `Array.isArray(value) -> Boolean`
 
 Возврашает `true` если переданное значение является массивом, иначе `false`.
