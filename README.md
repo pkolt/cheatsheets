@@ -2,6 +2,7 @@
 
 ## GNU Linux
 
+* [Linux](Linux.md)
 * [Bash](Bash.md)
 
 ## Разметка контента
