@@ -11,4 +11,5 @@
 
 ## JavaScript
 
+* [История создания](JavaScript/History.md)
 * [Array](JavaScript/Array.md)
