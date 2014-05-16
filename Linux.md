@@ -20,6 +20,7 @@ Linux
 Установка программ
 ------------------
 
+* `sudo apt-get install logrotate` ротация логов
 * `sudo apt-get install ntp` утилита синхронизации времени по протоколу NTP
 
 ### Установка шрифтов Microsoft
