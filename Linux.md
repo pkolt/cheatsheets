@@ -66,6 +66,14 @@ Linux
 * `stat <файл>` информация о файле (размер, права доступа)
 * `recode CP1251 <файл>` сменить кодировку файла
 
+Шифрование
+----------
+
+* `truecrypt` зашифрованный контейнер, шифрование раздела диска
+* `sudo apt-get install gpg`
+* `sudo apt-get install bcrypt`
+* `sudo apt-get install ccrypt`
+
 ### Проверка целостности файла
 
     md5sum <файл> > md5sum.txt
