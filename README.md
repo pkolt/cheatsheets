@@ -3,6 +3,7 @@
 ## GNU Linux
 
 * [Linux](Linux.md)
+* [Ubuntu](Ubuntu.md)
 * [Bash](Bash.md)
 
 ## Разметка контента
