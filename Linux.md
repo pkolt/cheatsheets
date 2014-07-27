@@ -21,6 +21,7 @@ Linux
 ------------------
 
 * `sudo apt-get install logrotate` ротация логов
+* `sudo apt-get install goaccess` анализ логов сервера
 * `sudo apt-get install ntp` утилита синхронизации времени по протоколу NTP
 
 ### Установка шрифтов Microsoft
@@ -70,9 +71,24 @@ Linux
 ----------
 
 * `truecrypt` зашифрованный контейнер, шифрование раздела диска
-* `sudo apt-get install gpg`
 * `sudo apt-get install bcrypt`
 * `sudo apt-get install ccrypt`
+
+### GPG (GNU Privacy Guard)
+
+* `apt-get install gpg` установка GPG
+* `gpg --gen-key` генерация закрытого и открытого ключей
+* `gpg --list-keys` вывести список публичных ключей
+* `gpg -K` вывести список приватных ключей
+* `gpg --import <файл>` импорт ключей
+* `gpg --sign-key <фраза>` подписать ключ
+* `gpg -e -a -r <получатель> <файл>` зашифровать файл (создаст файл с расширением \*.asc)
+* `gpg -e -a -s -r <получатель> <файл>` зашифровать и подписать(sign) файл
+* `gpg -d <файл>` расшифровать файл (бинарные файлы имеют расширение - \*.gpg, тестовые файлы - \*.asc)
+
+В Ubuntu для управления ключами используется программа Seahorse.
+
+Для встраивания возможности шифрования в проводник необходимо установить `apt-get install seahorse-nautilus`.
 
 ### Проверка целостности файла
 
