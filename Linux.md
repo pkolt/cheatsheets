@@ -79,6 +79,12 @@ Linux
 * `recode CP1251 <файл>` сменить кодировку файла
 * `diff -rq <каталог1> <каталог2>` узнать различия между каталогами
 
+### Форматирование флешки
+
+    df -h
+    sudo umount /dev/sdc1
+    sudo mkfs.vfat -n 'My flash drive' -I /dev/sdc1
+
 ### Проверка целостности файла
 
     md5sum <файл> > md5sum.txt
