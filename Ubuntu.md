@@ -33,3 +33,12 @@ sudo apt-get install nvidia-331 nvidia-settings nvidia-prime
 
 - Modify GRUP parameters (/etc/default/grub)
 - Added "acpi_osi=" in GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_osi="
+
+Если не работает передача файлов через bluetooth
+------------------------------------------------
+
+```bash
+sudo gedit /etc/bluetooth/main.conf
+```
+
+Change `EnableGatt = true`
