@@ -20,3 +20,16 @@ Ubuntu
 | ¿      | compose_key right_shift+? right_shift+? |
 | ←      | compose_key left_shift+< -              |
 | …      | compose_key . .                         |
+
+Установка драйвера видеокарты
+-----------------------------
+
+```bash
+sudo apt-get install nvidia-331 nvidia-settings nvidia-prime
+```
+
+Если не работает регулировка яркости экрана на ASUS
+---------------------------------------------------
+
+- Modify GRUP parameters (/etc/default/grub)
+- Added "acpi_osi=" in GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_osi="
