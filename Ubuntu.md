@@ -42,3 +42,14 @@ sudo gedit /etc/bluetooth/main.conf
 ```
 
 Change `EnableGatt = true`
+
+Перевод в спящий режим или режим гибернации
+-------------------------------------------
+
+```bash
+// Спящий режим
+$ sudo pm-suspend
+
+// Режим гибернации
+$ sudo pm-hibernate
+```
