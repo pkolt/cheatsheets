@@ -27,47 +27,65 @@
 
 ### Настройка имени пользователя
 
-    git config --global user.name "<имя>"
-    git config --global user.email <эл.почта>
+```bash
+git config --global user.name "<имя>"
+git config --global user.email <эл.почта>
+```
 
 ### Настройка редактора
 
-    git config --global core.editor mcedit
+```bash
+git config --global core.editor mcedit
+```
 
 ### Утилита сравнения
 
-    git config --global merge.tool vimdiff
+```bash
+git config --global merge.tool vimdiff
+```
 
 ### Вывод настроек
 
-    git config --list
-    git config user.name
-    git config <ключ>
+```bash
+git config --list
+git config user.name
+git config <ключ>
+```
 
 ### Вызов справки
 
-    git help <команда>
+```bash
+git help <команда>
+git <команда> --help
+```
 
 Репозиторий
 -----------
 
 ### Создание репозитория
 
-    git init
-    git init <каталог>
-    git init --bare <каталог> # репозиторий создаваемый как удаленный, не содержит рабочей директории с файлами
+```bash
+git init
+git init <каталог>
+git init --bare <каталог> # репозиторий создаваемый как удаленный, не содержит рабочей директории с файлами
+```
 
 ### Клонирование репозитория
 
-    git clone <url> <каталог>
-    git clone /home/username/project.git <каталог>
-    git clone git://user@somehost:port/~user/repository/project.git <каталог>
+```bash
+git clone <url> <каталог>
+git clone /home/username/project.git <каталог>
+git clone git://user@somehost:port/~user/repository/project.git <каталог>
+```
 
 ### Добавление файлов в репозиторий
 
-Многофункциональная команда `git add` используется для добавления файлов в репозиторий и индексации изменений файлов.
+Многофункциональная команда `git add` используется для добавления файлов в репозиторий, индексации изменений файлов, 
+а также помечает файлы с конфликтом слияния как разрешенные.
 
-    git add <файл|каталог>
+```bash
+git add <файл|каталог>
+```
 
 ### Удаление файлов из репозитория
 
@@ -78,15 +96,21 @@
 ### Игнорирование файлов
 
 В файле `.gitignore` можно указать список файлов или шаблонов неотслеживаемых файлов.
+Исчерпывающий список примеров можно найти на сайте [Github](https://github.com/github/gitignore).
 
-    cat .gitignore
-    .idea/*
-    *.py[co]
+```bash
+.idea
+node_modules
+*.py[co]
+```
 
 ### Состояние репозитория
 
-    git status
-    git status -uno # без файлов не включенных в репозиторий
+```bash
+git status
+git status -s # краткое отображение состояния (?? - неотслеживаемые, A - новые добавленные, M - модифицированные, MM - модифицированные после индексации)
+git status -uno # без файлов не включенных в репозиторий
+```
 
 ### Лог изменений
 
@@ -100,9 +124,11 @@
 
 ### Просмотр изменений между файлами
 
-    git diff # разница между файлами в рабочем каталоге и репозитории
-    git diff HEAD~1 HEAD # разница между последним и предпоследним коммитами
-    git diff --staged # узнать что войдет в новый коммит
+```bash
+git diff # изменения которые внесли, но еще не проиндексировали
+git diff HEAD~1 HEAD # разница между последним и предпоследним коммитами
+git diff --staged # узнать что войдет в новый коммит
+```
 
 ### Фиксация изменений
 
