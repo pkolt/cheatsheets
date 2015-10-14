@@ -49,6 +49,12 @@ git config --global user.email <эл.почта>
 git config --global core.editor mcedit
 ```
 
+### Настройка вывода
+
+```bash
+git config core.quotepath false --global
+```
+
 ### Утилита сравнения
 
 ```bash
