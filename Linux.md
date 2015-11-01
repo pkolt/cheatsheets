@@ -23,6 +23,14 @@ Linux
 * `sudo apt-get install logrotate` ротация логов
 * `sudo apt-get install goaccess` анализ логов сервера
 * `sudo apt-get install ntp` утилита синхронизации времени по протоколу NTP
+ 
+Установка NodeJS
+----------------
+
+```bash
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
 
 ### Установка шрифтов Microsoft
 
