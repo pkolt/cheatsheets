@@ -34,8 +34,11 @@ sudo apt-get install -y nodejs
 
 ### Установка шрифтов Microsoft
 
-    sudo apt-get install msttcorefonts
-    sudo fc-cache -fv
+```bash
+sudo rm -rf /var/lib/update-notifier/package-data-downloads/partial/*
+sudo apt-get --purge --reinstall install ttf-mscorefonts-installer
+sudo fc-cache -fv
+```
 
 Настройка
 ---------
