@@ -24,12 +24,19 @@ Linux
 * `sudo apt-get install goaccess` анализ логов сервера
 * `sudo apt-get install ntp` утилита синхронизации времени по протоколу NTP
  
-Установка NodeJS
-----------------
+### Установка NodeJS
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 sudo apt-get install -y nodejs
+```
+
+### Установка Sublime Text
+
+```bash
+sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer
 ```
 
 ### Установка шрифтов Microsoft
