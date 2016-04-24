@@ -49,6 +49,12 @@ git config --global user.email <эл.почта>
 git config --global core.editor mcedit
 ```
 
+### Настройка символов перевода строки
+
+```bash
+git config --global core.autocrlf true
+```
+
 ### Настройка вывода
 
 ```bash
