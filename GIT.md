@@ -49,10 +49,10 @@ git config --global user.email <эл.почта>
 git config --global core.editor mcedit
 ```
 
-### Настройка символов перевода строки
+### Настройка символов перевода строки (принудительное преобразование символа конца в строки в Unix-стиль)
 
 ```bash
-git config --global core.autocrlf true
+git config --global core.autocrlf input
 ```
 
 ### Настройка вывода
