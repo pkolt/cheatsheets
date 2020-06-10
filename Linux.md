@@ -48,6 +48,13 @@ sudo apt-get --purge --reinstall install ttf-mscorefonts-installer
 sudo fc-cache -fv
 ```
 
+### Установка OpenVPN Client
+
+```bash
+sudo apt install network-manager-openvpn network-manager-openvpn-gnome
+sudo systemctl restart NetworkManager.service
+```
+
 Настройка
 ---------
 
