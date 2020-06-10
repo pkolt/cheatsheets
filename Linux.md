@@ -60,6 +60,7 @@ sudo systemctl restart NetworkManager.service
 
 * `sudo dpkg-reconfigure tzdata` смена временной зоны
 * `sudo update-alternatives --config editor` задать текстовый редактор по умолчанию
+* `sudo apt-get install gnome-tweak-tool` вернуть минимизацию окна, "Заголовки окон" -> "Кнопки заголовка окна"
 
 Пользователи
 ------------
