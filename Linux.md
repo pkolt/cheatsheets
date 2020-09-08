@@ -55,6 +55,38 @@ sudo apt install network-manager-openvpn network-manager-openvpn-gnome
 sudo systemctl restart NetworkManager.service
 ```
 
+### Установка Debian 10 (из Mac OS)
+
+1. Определить имя для диска с флешкой
+
+```bash
+diskutil list
+```
+
+2. Конвертировать ISO файл в образ диска
+
+```bash
+hdiutil convert -format UDRW -o debian-10.5.0-amd64-netinst.img debian-10.5.0-amd64-netinst.iso
+```
+
+3. Переименовать файл образа из *.IMG.DMG в *.IMG
+
+```bash
+mv debian-10.5.0-amd64-netinst.img.dmg debian-10.5.0-amd64-netinst.img
+```
+
+4. Размонтировать диск с флешкой перед записью образа Debian
+
+```bash
+sudo diskutil unmountDisk /dev/disk2
+```
+
+5. Запись образа Debian на диск
+
+```bash
+sudo dd if=debian-10.5.0-amd64-netinst.img of=/dev/disk2 bs=1m
+```
+
 Настройка
 ---------
 
