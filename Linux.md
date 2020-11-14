@@ -94,6 +94,13 @@ sudo dd if=debian-10.5.0-amd64-netinst.img of=/dev/disk2 bs=1m
 * `sudo update-alternatives --config editor` задать текстовый редактор по умолчанию
 * `sudo apt-get install gnome-tweak-tool` вернуть минимизацию окна, "Заголовки окон" -> "Кнопки заголовка окна"
 
+Графическая оболочка
+--------------------
+
+* `systemctl get-default` текущее состояние
+* `systemctl set-default multi-user.target` загрузка Linux без графической оболочки
+* `systemctl set-default graphical.target` загрузка Linux с графической оболочкой
+
 Пользователи
 ------------
 
