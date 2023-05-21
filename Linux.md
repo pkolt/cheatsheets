@@ -140,6 +140,16 @@ Host webserver
 
 Подключение к вебсерверу `ssh webserver`.
 
+#### Выключить вход по паролю в SSH
+
+Изменить конфигурацию SSH `mcedit /etc/ssh/sshd_config`
+
+```
+PasswordAuthentication no
+```
+
+Перезагрузить SSH - `systemctl restart ssh`
+
 
 ### Перевод программы в фоновый режим и возврат к ней (Screen)
 
