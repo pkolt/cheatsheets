@@ -125,7 +125,8 @@ Host example.com
 * `ssh-add <private_key>` добавление ключа
 * `ssh-add --apple-use-keychain <private_key>` добавление ключа (запомнить ключи, даже после перезапуска ПК в macOS)
 * `ssh-add -l` или `ssh-add -L` показать список ключей
-* `ssh-add` -D удалить все ключи из `ssh-agent`
+* `ssh-add -d <private_key>` удалить конкретный ключ
+* `ssh-add -D` удалить все ключи
 
 #### Добавление alias в SSH
 
