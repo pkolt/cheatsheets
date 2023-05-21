@@ -114,10 +114,22 @@ sudo dd if=debian-10.5.0-amd64-netinst.img of=/dev/disk2 bs=1m
 Работа с SSH
 ------------
 
-* `ssh-keygen` создание публичного и приватного ключей
+* `ssh-keygen -t ed25519 -C <email> -f <private_key>` создание публичного и приватного ключей (`ssh-keygen -t ed25519 -C alice -f ~/.ssh/github_ed25519`)
+* `pbcopy < ~/.ssh/id_ed25519.pub` копирование публичного ключа в буфер обмена
 * `ssh-copy-id -i ~/.ssh/id_rsa.pub username@host` передача открытого ключа на другой компьютер
 * `ssh -L 8000:192.168.0.100:80 user@host` переброс удаленного порта на локальный (например получить доступ к локальному сайту)
 * `ssh -i <private_key.txt> username@host` подключение через приватный ключ
+* `ssh-add <private_key>` добавление ключа в `ssh-agent`
+* `ssh-add -l` или `ssh-add -L` список ключей в ssh-agent
+* `ssh-add --apple-use-keychain <private_key>` для того чтобы `ssh-agent` не забыл ключи после перезапуска ПК в macOS
+* `ssh-add` -D удалить все ключи из `ssh-agent`
+* Использование `ssh-agent` для example.com:
+
+```
+# ~/.ssh/config
+Host example.com
+  ForwardAgent yes
+```
 
 ### Перевод программы в фоновый режим и возврат к ней (Screen)
 
