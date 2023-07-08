@@ -150,7 +150,7 @@ PasswordAuthentication no
 
 Перезагрузить SSH - `systemctl restart ssh`
 
-### UWF
+### UFW (Uncomplicated Firewall)
 
 * `apt install ufw` установка
 * `mcedit /etc/default/ufw` настройка
