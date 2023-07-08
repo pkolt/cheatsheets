@@ -150,6 +150,22 @@ PasswordAuthentication no
 
 Перезагрузить SSH - `systemctl restart ssh`
 
+### UWF
+
+* `apt install ufw` установка
+* `mcedit /etc/default/ufw` настройка
+* `ufw default deny incoming` запретить все входящие
+* `ufw default allow outgoing` разрешить все исходящие
+* `ufw allow ssh` разрешить SSH
+* `ufw allow 22` или разрешить SSH (с указанием порта)
+* `ufw enable` включить
+* `ufw disable` отключить
+* `ufw status verbose` просмотр состояния
+* `ufw reset` сбросить все правила
+* `ufw delete <number rule>` удалить правила по номеру
+* `ufw delete allow http` удалить правило
+* `ufw delete allow 80` удалить правило
+
 
 ### Перевод программы в фоновый режим и возврат к ней (Screen)
 
