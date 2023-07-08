@@ -226,3 +226,8 @@ PasswordAuthentication no
 В Ubuntu для управления ключами используется программа Seahorse.
 
 Для встраивания возможности шифрования в проводник необходимо установить `apt-get install seahorse-nautilus`.
+
+### Zip (MacOS)
+
+* `zip -er <ZIP file name> <original file name>`
+* `unzip <ZIP file name>`
