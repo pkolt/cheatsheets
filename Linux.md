@@ -227,6 +227,10 @@ PasswordAuthentication no
 
 Для встраивания возможности шифрования в проводник необходимо установить `apt-get install seahorse-nautilus`.
 
+## Настройка подписи коммитов в GIT с помощью GPG
+
+https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e
+
 ### Zip (MacOS)
 
 * `zip -er <ZIP file name> <original file name>`
