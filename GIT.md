@@ -465,3 +465,10 @@ git config --global alias.co 'checkout'
 git config --global alias.lg 'log --oneline --graph --pretty=format:"%C(bold yellow)(%p) %h%C(reset)%C(bold cyan)%d%C(reset) %C(cyan)[%cn]%C(reset) %C(magenta)%cd%C(reset)%C(white) - %s" --date=format:"%d.%m.%Y %H:%M"'
 git config --global core.editor "'C:/Program Files/Sublime Text 3/subl.exe' -w"
 ```
+### Пустой коммит
+
+Может пригодиться если нужно перезапустить сборку CI.
+
+```bash
+git commit --allow empty -m 'it works!'
+```
