@@ -470,5 +470,5 @@ git config --global core.editor "'C:/Program Files/Sublime Text 3/subl.exe' -w"
 Может пригодиться если нужно перезапустить сборку CI.
 
 ```bash
-git commit --allow empty -m 'it works!'
+git commit --allow-empty -m 'it works!'
 ```
