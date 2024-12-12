@@ -158,6 +158,10 @@ PasswordAuthentication no
 * `ufw default allow outgoing` разрешить все исходящие
 * `ufw allow ssh` разрешить SSH
 * `ufw allow 22` или разрешить SSH (с указанием порта)
+* `ufw allow 21/tcp` разрешить порт 21 для TCP
+* `ufw allow 6000:6007/udp` разрешить диапазон портов для UDP
+* `ufw allow from 15.15.15.51` разрешить подключение только с указанного IP
+* `ufw allow from 15.15.15.0/24` разрешить подключение только для IP с 15.15.15.1 по 15.15.15.254
 * `ufw enable` включить
 * `ufw disable` отключить
 * `ufw status verbose` просмотр состояния
