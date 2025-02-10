@@ -170,6 +170,12 @@ PasswordAuthentication no
 * `ufw delete allow http` удалить правило
 * `ufw delete allow 80` удалить правило
 
+### DNS
+
+* `dig @1.1.1.1 google.com` узнать ip сайта через DNS 1.1.1.1
+* `dig google.com` узнать ip сайта через локальный DNS
+* `kdig +tls @1.1.1.1:853 google.com` проверка сайта через DoT (DNS over TLS)
+* `dig @cloudflare-dns.com +https example.com` проверка сайта через DoH (DNS over HTTPS)
 
 ### Перевод программы в фоновый режим и возврат к ней (Screen)
 
