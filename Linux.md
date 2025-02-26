@@ -80,7 +80,7 @@ sudo diskutil unmountDisk /dev/disk2
 5. Запись образа Debian на диск
 
 ```bash
-sudo dd if=debian-10.5.0-amd64-netinst.img of=/dev/disk2 bs=1m
+sudo dd if=debian-10.5.0-amd64-netinst.img of=/dev/disk2 bs=16M status=progress oflag=sync
 ```
 
 ## Настройка
