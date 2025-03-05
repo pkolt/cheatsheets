@@ -15,6 +15,12 @@ docker run -d --restart=unless-stopped --name=my_container -p 8000:80 my_image
 // -p <порт внутри контейнера>:<порт снаружи контейнера>
 ```
 
+## Создать временный контейнер и запустить в нем Bash
+
+```
+docker run --rm -it eclipse-mosquitto sh
+```
+
 ## Остановить контейнер
 
 ```
