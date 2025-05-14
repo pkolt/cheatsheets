@@ -75,6 +75,23 @@ git config --global merge.tool vimdiff
 git config --global core.ignorecase false
 ```
 
+### Настройки GPG
+
+Для отключения подписи коммитов перейти в калог проекта и выполнить `git config commit.gpgsign false`.
+
+Для включения подписи коммитов:
+
+1. Создать GPG ключ;
+2. Найти в списке нужный ключ и скопировать его Key ID (после `rsa4096/`), например `3AA5C34371567BD2` - `gpg --list-secret-keys --keyid-format LONG`;
+3. Перейти в каталог проекта и настроить ключ:
+
+```sh
+git config user.signingkey 3AA5C34371567BD2
+git config commit.gpgsign true
+```
+
+Важно, чтобы **email** из `git config user.email` совпадал с **email** GPG-ключа.
+
 ### Вывод настроек
 
 ```bash
