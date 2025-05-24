@@ -177,6 +177,20 @@ PasswordAuthentication no
 * `kdig +tls @1.1.1.1:853 google.com` проверка сайта через DoT (DNS over TLS)
 * `dig @cloudflare-dns.com +https example.com` проверка сайта через DoH (DNS over HTTPS)
 
+### Узнать какие порты открыты
+
+```sh
+sudo ss -tulnp
+```
+
+Расшифровка флагов:
+
+* `-t`: TCP
+* `-u`: UDP
+* `-l`: слушающие (listening)
+* `-n`: не резолвить имена (IP и порты в числах)
+* `-p`: показать PID и процесс
+
 ### Перевод программы в фоновый режим и возврат к ней (Screen)
 
 * `screen` создает новый скрин в консоли (свернуть скрин Ctr + A, далее нажать D)
