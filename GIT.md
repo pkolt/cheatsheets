@@ -489,3 +489,19 @@ git config --global core.editor "'C:/Program Files/Sublime Text 3/subl.exe' -w"
 ```bash
 git commit --allow-empty -m 'it works!'
 ```
+
+### Worktree
+
+Git поддерживает множественные рабочие деревья из одного репозитория.
+
+```bash
+git worktree add ../папка_для_ветки имя_ветки
+// или если ветки ещё нет
+git worktree add -b имя_ветки ../папка_для_ветки origin/main
+
+// Список всех папок
+git worktree list
+
+// Удалить ненужную папку
+git worktree remove путь/до/папки
+```
