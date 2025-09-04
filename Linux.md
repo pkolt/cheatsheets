@@ -229,6 +229,11 @@ sudo ss -tulnp
 * `sudo fdisk -l` - список дисков;
 * `df -h` информация о смонтированных файловых системах;
 * `sudo gdisk <device>` разметка диска (создание разделов), далее `n + Enter` добавление нового раздела;
+* `sudo smartctl -H <device>` утилита для мониторинга состояния SSD диска
+    * `sudo apt install smartmontools` установка
+    * `sudo smartctl -a <device>` полный отчет
+* `sudo nvme smart-log <device>` утилита для NVMe-накопителей
+    * `sudo apt install nvme-cli` установка
 
 ### Проверка целостности файла
 
