@@ -273,3 +273,14 @@ https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e
 
 * `zip -er <ZIP file name> <original file name>`
 * `unzip <ZIP file name>`
+
+## Загрузки
+
+### yt-dlp
+
+* `yt-dlp -f "bestvideo+bestaudio" "URL"` для наилучшего видео и наилучшего аудио
+* `yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" "URL"` явно указать формат
+* `yt-dlp -o "/путь/к/папке/%(title)s.%(ext)s" "URL"` скачать в определенную папку
+* `yt-dlp -F "URL"` показать доступные форматы перед скачиванием
+* `yt-dlp -f "bestaudio" --extract-audio --audio-format mp3 "URL"` только аудио в наилучшем качестве
+* `yt-dlp -f "best" "URL"` команда автоматически выберет наилучшее доступное качество
