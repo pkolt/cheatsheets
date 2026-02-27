@@ -201,6 +201,46 @@ sudo ss -tulnp
 * `exit` выход из скрина
 * `screen -list` список всех скринов
 
+### Dropbear (подключение по SSH до монтирования диска)
+
+1. Установка
+
+```bash
+sudo apt update
+sudo apt install dropbear-initramfs busybox
+```
+
+2. Настройка
+
+```txt
+# /etc/initramfs-tools/initramfs.conf
+DEVICE=<указать интерфейс (см ip a)>
+IP=dhcp
+```
+
+3. Вставить публичный SSH ключ в конфиг
+
+```bash
+sudo mcedit /etc/dropbear/initramfs/authorized_keys
+sudo chmod 600 /etc/dropbear/initramfs/authorized_keys
+```
+
+4. Обновление initramfs
+
+```bash
+sudo update-initramfs -u
+sudo reboot
+```
+
+5. Подключение
+
+```bash
+# Подключение под ROOT (настройки сервера SSH менять не нужно, dropbear использует свой SSH-сервер)
+ssh root@IP_ТВОЕГО_ПК
+
+# После успешной авторизации
+cryptroot-unlock
+```
 
 ## Файлы и каталоги
 
