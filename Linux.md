@@ -242,6 +242,76 @@ ssh root@IP_ТВОЕГО_ПК
 cryptroot-unlock
 ```
 
+### VNC
+
+1. Установка
+
+```bash
+sudo apt update
+sudo apt install tigervnc-standalone-server tigervnc-common
+```
+
+2. Создание пароля
+
+```bash
+vncpasswd
+```
+
+3. Настройка VNC-сессии (GNOME или XFCE) 
+
+```bash
+mcedit ~/.vnc/xstartup
+```
+
+Для XFCE:
+```txt
+#!/bin/sh
+xrdb $HOME/.Xresources
+startxfce4 &
+```
+
+Для GNOME:
+```txt
+#!/bin/sh
+xrdb $HOME/.Xresources
+gnome-session &
+```
+
+```bash
+chmod +x ~/.vnc/xstartup
+```
+
+4. Команды
+
+```bash
+# Запуск сервера (номер дисплея VNC порт = 5900 + номер дисплея = порт 5901)
+vncserver :1 -localhost no
+
+# Список сессий
+vncserver -list
+
+# Остановить сессию
+vncserver -kill :1
+```
+
+5. Добавить в UFW `ufw allow 5901/tcp`
+
+6. Подключение в MacOS - `vnc://<IP>:5901`
+
+### Отключить Wi-Fi
+
+```bash
+sudo nmcli radio wifi off
+
+# Добавим запрет включения
+sudo mcedit /etc/NetworkManager/NetworkManager.conf
+
+# Добавь `wifi=off` в секцию `[main]`
+
+# Перезапусти
+sudo systemctl restart NetworkManager
+```
+
 ## Файлы и каталоги
 
 * `find . -type f -exec chmod 644 \{\} \;` рекурсивная установка прав для файлов
