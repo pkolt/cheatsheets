@@ -243,13 +243,7 @@ ssh root@IP_ТВОЕГО_ПК
 cryptroot-unlock
 ```
 
-6. На клиенте настройка SSH `~/.ssh/config`
-
-```
-# Разрешить несколько ключей для одного хоста
-    HostKeyAlgorithms +ssh-rsa,ssh-ed25519
-    StrictHostKeyChecking accept-new
-```
+6. Вынести подключение SSH на другой порт, иначе у вас будет две записи авторизации на один хост.
 
 ### VNC
 
