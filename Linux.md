@@ -111,6 +111,7 @@ sudo dd if=debian-10.5.0-amd64-netinst.img of=/dev/disk2 bs=16M status=progress 
 * `ssh-copy-id -i ~/.ssh/id_rsa.pub username@host` передача открытого ключа на другой компьютер
 * `ssh -L 8000:192.168.0.100:80 user@host` переброс удаленного порта на локальный (например получить доступ к локальному сайту)
 * `ssh -i <private_key.txt> username@host` подключение через приватный ключ
+* `ssh-keygen -R <IP>` при ошибке - `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`
 
 ### Использование ssh-agent
 
@@ -240,6 +241,14 @@ ssh root@IP_ТВОЕГО_ПК
 
 # После успешной авторизации
 cryptroot-unlock
+```
+
+6. На клиенте настройка SSH `~/.ssh/config`
+
+```
+# Разрешить несколько ключей для одного хоста
+    HostKeyAlgorithms +ssh-rsa,ssh-ed25519
+    StrictHostKeyChecking accept-new
 ```
 
 ### VNC
