@@ -387,6 +387,35 @@ https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e
 * `zip -er <ZIP file name> <original file name>`
 * `unzip <ZIP file name>`
 
+### Посмотреть температуру дисков и процессора
+
+1. Установить lm-sensors
+
+```bash
+sudo apt update
+sudo apt install lm-sensors
+```
+
+2. Найти датчики
+Нажимай **Enter** или **Y** на все вопросы.
+
+```bash
+sudo sensors-detect
+```
+
+3. Посмотреть температуру
+
+```bash
+sensors
+```
+
+4. Просмотр в реальном времени
+
+```bash
+# Обновляет температуру каждые 2 секунды
+watch -n 2 sensors
+```
+
 ## Загрузки
 
 ### yt-dlp
