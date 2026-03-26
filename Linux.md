@@ -17,6 +17,12 @@
     - [Утилита `ip`](#утилита-ip)
     - [Ping](#ping)
     - [Настройка обращения к DNS](#настройка-обращения-к-dns)
+    - [nftables](#nftables)
+      - [Архитектура nftables](#архитектура-nftables)
+      - [Работа с сервисом nftables](#работа-с-сервисом-nftables)
+      - [Базовый конфиг](#базовый-конфиг)
+      - [Утилита nft](#утилита-nft)
+    - [Утилита traceroute](#утилита-traceroute)
     - [Работа с SSH](#работа-с-ssh)
     - [Использование ssh-agent](#использование-ssh-agent)
       - [Добавление alias в SSH](#добавление-alias-в-ssh)
@@ -299,6 +305,156 @@ cat /etc/hosts
 # Конфигурация DNS-резолвера
 cat /etc/resolv.conf
 ```
+
+### nftables
+
+[Документация по nftables](http://wiki.nftables.org)
+
+Это firewall + система обработки пакетов:
+
+- фильтрация трафика (разрешить/запретить)
+- NAT (маскарадинг, проброс портов)
+- логирование
+- защита от атак (например, rate limiting)
+
+#### Архитектура nftables
+
+В nftables структура выглядит так:
+
+```
+table → chain → rule
+```
+
+1. **Table (таблица). Контейнер для правил.**
+
+Типы:
+
+`inet` — IPv4 + IPv6 (чаще всего используешь)
+`ip` — только IPv4
+`ip6` — только IPv6
+`bridge`, `arp`
+
+2. **Chain (цепочка). Где именно применяются правила.**
+
+Основные:
+
+- `input` — входящий трафик
+- `output` — исходящий
+- `forward` — транзитный
+
+Есть параметры:
+
+- `type filter`
+- `hook input`
+- `priority 0`
+
+3. Rule (правило).
+
+Конкретное условие:
+
+```
+ip saddr 192.168.1.1 accept
+tcp dport 22 drop
+```
+
+#### Работа с сервисом nftables
+
+```bash
+# Посмотреть статус
+sudo systemctl status nftables.service
+
+# Включить автозагрузку сервиса
+sudo systemctl enable nftables.service
+
+# Запустить сервис сейчас
+sudo systemctl start nftables.service
+```
+
+#### Базовый конфиг
+
+Базовый конфиг в файле `/etc/nftables.conf`
+
+```
+#!/usr/sbin/nft -f
+
+flush ruleset
+
+table inet filter {
+	chain input {
+		type filter hook input priority filter;
+	}
+	chain forward {
+		type filter hook forward priority filter;
+	}
+	chain output {
+		type filter hook output priority filter;
+	}
+}
+```
+
+#### Утилита nft
+
+```bash
+# Показывает все таблицы, которые сейчас существуют
+sudo nft list tables
+# Вывод: table inet filter (таблица для фильтрации (IPv4 + IPv6))
+
+# Показать одну таблицу
+sudo nft list table inet filter
+
+# Показывает всё полностью (таблицы, цепочки, правила, sets / maps)
+# ⚠️ Показывает не файл /etc/nftables.conf а то, что реально загружено в ядре. Они могут отличаться!
+sudo nft list ruleset
+
+# Показывает все цепочки
+sudo nft list chains
+# Только правила входящего трафика
+sudo nft list chain inet filter input
+
+# Применить правила
+sudo nft -f /etc/nftables.conf
+```
+
+### Утилита traceroute
+
+Это утилита для диагностики сети, которая показывает путь пакетов от твоего компьютера до целевого хоста (по каким маршрутизаторам они проходят).
+
+Идея основана на поле **TTL (Time To Live)** в IP-пакетах:
+
+1. Отправляется пакет с TTL=1
+→ первый роутер уменьшает TTL до 0 и возвращает ошибку
+2. Затем с TTL=2
+→ доходит до второго роутера
+3. И так далее…
+
+В итоге ты получаешь список всех "хопов" (узлов) по пути.
+
+```bash
+traceroute google.com
+
+# Использовать ICMP (как ping)
+traceroute -I google.com
+
+# Использовать TCP (имитирует обычное соединение, например - HTTP)
+traceroute -T google.com
+
+# Указать порт
+traceroute -T -p 443 google.com
+
+# Ограничить число хопов
+traceroute -m 10 google.com
+
+# Быстрее (меньше запросов)
+traceroute -q 1 google.com
+```
+
+Почему появляются `* * *` ?
+
+- роутер игнорирует ICMP (часто на VPN или у провайдеров)
+- firewall блокирует ответы
+- пакет потерялся
+
+Это не всегда проблема, если дальше маршрут продолжается.
 
 ### Работа с SSH
 
