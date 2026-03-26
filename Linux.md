@@ -456,6 +456,13 @@ traceroute -q 1 google.com
 
 Это не всегда проблема, если дальше маршрут продолжается.
 
+**Альтернатива (лучше traceroute)**
+
+```bash
+sudo apt install mtr
+mtr google.com
+```
+
 ### Работа с SSH
 
 * `ssh-keygen -t ed25519 -C <comment> -f <private_key>` создание публичного и приватного ключей (`ssh-keygen -t ed25519 -C alice_github -f ~/.ssh/id_github_ed25519`)
