@@ -23,6 +23,9 @@
       - [Базовый конфиг](#базовый-конфиг)
       - [Утилита nft](#утилита-nft)
     - [Утилита traceroute](#утилита-traceroute)
+    - [Утилита tcpdump](#утилита-tcpdump)
+    - [Утилита iftop](#утилита-iftop)
+    - [Утилита nethogs](#утилита-nethogs)
     - [Работа с SSH](#работа-с-ssh)
     - [Использование ssh-agent](#использование-ssh-agent)
       - [Добавление alias в SSH](#добавление-alias-в-ssh)
@@ -462,6 +465,98 @@ traceroute -q 1 google.com
 sudo apt install mtr
 mtr google.com
 ```
+
+### Утилита tcpdump
+
+```bash
+# Покажет ВСЕ пакеты на интерфейсе по умолчанию.
+sudo tcpdump
+
+# Покажет ВСЕ пакеты на интерфейсе eth0 (см. интерфейсы `ip a`)
+sudo tcpdump -i eth0
+
+# Слушать все интерфейсы
+sudo tcpdump -i any
+
+# Без DNS-резолва (иначе tcpdump будет тормозить, пытаясь резолвить IP → домены)
+sudo tcpdump -n
+
+# Показать MAC-адреса
+sudo tcpdump -e
+
+# Ограничить количество пакетов
+sudo tcpdump -c 10
+
+# Фильтрация по IP
+sudo tcpdump host 8.8.8.8
+
+# Только входящий траффик
+sudo tcpdump dst host 192.168.1.10
+
+# Только исходящий траффик
+sudo tcpdump src host 192.168.1.10
+
+# По порту (весь траффик где встречается порт)
+sudo tcpdump port 80
+sudo tcpdump tcp port 22     # SSH
+sudo tcpdump udp port 53     # DNS
+
+# Комбинации
+sudo tcpdump host 1.1.1.1 and port 443
+sudo tcpdump port 80 or port 443
+sudo tcpdump not port 22
+
+# Показать содержимое пакетов (HEX + ASCII)
+sudo tcpdump -X
+# (только ASCII)
+sudo tcpdump -A
+
+# Подробный вывод
+sudo tcpdump -v
+sudo tcpdump -vv
+sudo tcpdump -vvv
+
+# Не обрезать пакеты
+sudo tcpdump -s 0
+
+# Сохранение в файл (для просмотра в Wireshark)
+sudo tcpdump -w dump.pcap
+
+# Чтение из файла
+tcpdump -r dump.pcap
+```
+
+### Утилита iftop
+
+Используется для мониторинга сетевого трафика в реальном времени в Linux.
+
+```bash
+# Установка
+sudo apt update
+sudo apt install iftop
+
+# Запуск
+sudo iftop
+
+# Указать интерфейс
+sudo iftop -i eth0
+```
+
+Основные горячие клавиши (прямо во время работы):
+
+| Клавиша | Что делает               |
+|---------|--------------------------|
+| h       | помощь                   |
+| t       | смена режима отображения |
+| n       | отключить DNS (важно!)   |
+| p       | показать порты           |
+| P       | скрыть порты             |
+| b       | показать bar-графики     |
+| s       | только исходящий         |
+| d       | только входящий          |
+| q       | выход                    |
+
+### Утилита nethogs
 
 ### Работа с SSH
 
