@@ -1,14 +1,11 @@
 # Linux
 
 - [Linux](#linux)
+  - [Утилита apt в Debian](#утилита-apt-в-debian)
   - [Просмотр информации](#просмотр-информации)
   - [Выключение, запуск программ](#выключение-запуск-программ)
-  - [Установка программ](#установка-программ)
-    - [Установка NodeJS](#установка-nodejs)
-    - [Установка Sublime Text](#установка-sublime-text)
-    - [Установка шрифтов Microsoft](#установка-шрифтов-microsoft)
-    - [Установка OpenVPN Client](#установка-openvpn-client)
-    - [Установка Debian 10 (из Mac OS)](#установка-debian-10-из-mac-os)
+  - [Установка шрифтов Microsoft](#установка-шрифтов-microsoft)
+  - [Установка Debian 10 (из Mac OS)](#установка-debian-10-из-mac-os)
   - [Настройка](#настройка)
   - [Графическая оболочка](#графическая-оболочка)
   - [Пользователи](#пользователи)
@@ -49,6 +46,62 @@
   - [Загрузки](#загрузки)
     - [yt-dlp](#yt-dlp)
 
+## Утилита apt в Debian
+
+Основной инструмент управления пакетами в Debian.  
+Она используется для установки, обновления, удаления и поиска программ.  
+Под капотом вызывает команду `dpkg`.
+
+```bash
+# Обновляет информацию о доступных пакетах из репозиториев
+sudo apt update
+
+# Обновляет все установленные пакеты до последних версий
+sudo apt upgrade
+
+# Может удалять или устанавливать пакеты для разрешения зависимостей
+sudo apt full-upgrade
+
+# Установка пакета (пакетов)
+sudo apt install <имя_пакета>
+
+# Удаление пакета
+sudo apt remove <имя_пакета>
+
+# Полное удаление (включая конфиги)
+sudo apt purge <имя_пакета>
+
+# Удаляет ненужные зависимости
+sudo apt autoremove
+
+# Очищает кэш скачанных пакетов (/var/cache/apt/archives)
+sudo apt clean
+
+# Поиск пакетов
+apt search <имя_пакета>
+
+# Информация о пакете
+apt show <имя_пакета>
+
+# APT использует список репозиториев из файла:
+cat /etc/apt/sources.list
+# и каталога:
+ls -l /etc/apt/sources.list.d/
+
+# Установка конкретной версии
+sudo apt install nginx=1.22.1
+
+# Показ установленных пакетов
+apt list --installed
+
+# Проверка обновлений
+apt list --upgradable
+
+# Фиксация версии (hold) (говорит системе - не трогай этот пакет, даже если есть новая версия)
+sudo apt-mark hold nginx
+# Снять фиксацию (unhold)
+sudo apt-mark unhold nginx
+```
 
 ## Просмотр информации
 
@@ -65,28 +118,7 @@
 * `shutdown -h now` выключение системы
 * `restart` перезагрузка
 
-## Установка программ
-
-* `sudo apt-get install logrotate` ротация логов
-* `sudo apt-get install goaccess` анализ логов сервера
-* `sudo apt-get install ntp` утилита синхронизации времени по протоколу NTP
- 
-### Установка NodeJS
-
-```bash
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
-```
-
-### Установка Sublime Text
-
-```bash
-sudo add-apt-repository ppa:webupd8team/sublime-text-3
-sudo apt-get update
-sudo apt-get install sublime-text-installer
-```
-
-### Установка шрифтов Microsoft
+## Установка шрифтов Microsoft
 
 ```bash
 sudo rm -rf /var/lib/update-notifier/package-data-downloads/partial/*
@@ -94,14 +126,7 @@ sudo apt-get --purge --reinstall install ttf-mscorefonts-installer
 sudo fc-cache -fv
 ```
 
-### Установка OpenVPN Client
-
-```bash
-sudo apt install network-manager-openvpn network-manager-openvpn-gnome
-sudo systemctl restart NetworkManager.service
-```
-
-### Установка Debian 10 (из Mac OS)
+## Установка Debian 10 (из Mac OS)
 
 1. Определить имя для диска с флешкой
 
