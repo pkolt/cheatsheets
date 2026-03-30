@@ -558,6 +558,34 @@ sudo iftop -i eth0
 
 ### Утилита nethogs
 
+Позволяет понять какой именно процесс использует сеть.
+
+```bash
+# Установка
+sudo apt update
+sudo apt install nethogs
+
+# Запуск (все сетевые интерфейсы)
+sudo nethogs
+# Указанный интерфейс (или несколько)
+sudo nethogs eth0
+
+# Показ командной строки процесса
+sudo nethogs -l
+
+# Только TCP/UDP
+sudo nethogs -C
+
+# Только конкретный процесс (где 1234 — PID)
+sudo nethogs -P 1234
+
+# Управление во время работы
+# q — выйти
+# s — сортировка по отправке
+# r — по приёму
+# m — смена единиц (KB/s, MB/s и т.д.)
+```
+
 ### Работа с SSH
 
 * `ssh-keygen -t ed25519 -C <comment> -f <private_key>` создание публичного и приватного ключей (`ssh-keygen -t ed25519 -C alice_github -f ~/.ssh/id_github_ed25519`)
