@@ -101,6 +101,9 @@ apt list --upgradable
 sudo apt-mark hold nginx
 # Снять фиксацию (unhold)
 sudo apt-mark unhold nginx
+
+# Узнать через какой пакет была установлена утилита
+dpkg -S $(which <ИМЯ>)
 ```
 
 ## Просмотр информации
