@@ -188,6 +188,9 @@ sudo usermod -aG sudo <имя_пользователя>
 
 # Добавить пользователя в группу docker
 sudo usermod -aG docker <имя_пользователя>
+
+# Задать пароль
+sudo passwd <имя_пользователя>
 ```
 
 ## Сеть
@@ -632,6 +635,7 @@ sudo nethogs -P 1234
 * `ssh-keygen -c -C <comment> -f <private_key>` изменить комментарий ключа
 * `pbcopy < ~/.ssh/id_ed25519.pub` копирование публичного ключа в буфер обмена
 * `ssh-copy-id -i ~/.ssh/id_rsa.pub username@host` передача открытого ключа на другой компьютер
+* `ssh-copy-id -o "IdentitiesOnly=yes" -i ~/.ssh/id_rsa.pub username@ip-адрес-сервера`
 * `ssh -L 8000:192.168.0.100:80 user@host` переброс удаленного порта на локальный (например получить доступ к локальному сайту)
 * `ssh -i <private_key.txt> username@host` подключение через приватный ключ
 * `ssh-keygen -R <IP>` при ошибке - `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!`
