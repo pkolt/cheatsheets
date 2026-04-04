@@ -178,6 +178,18 @@ sudo dd if=debian-10.5.0-amd64-netinst.img of=/dev/disk2 bs=16M status=progress 
 * `adduser <имя>` добавить пользователя
 * `visudo` разрешить запуск команд суперпользователя из под sudo
 
+### Создание нового пользователя
+
+```bash
+sudo useradd -m -s /bin/bash <имя_пользователя>
+
+# Добавить пользователя в группу sudo
+sudo usermod -aG sudo <имя_пользователя>
+
+# Добавить пользователя в группу docker
+sudo usermod -aG docker <имя_пользователя>
+```
+
 ## Сеть
 
 ### 7 уровней модели OSI
