@@ -127,15 +127,13 @@ sudo lsblk
 # Узнать файловую систему
 sudo lsblk -f
 
-# Пакет для работы с exFAT
-sudo apt install exfatprogs
-
-# Форматирование диска в exFAT (удалит все данные на диске)
-sudo mkfs.exfat /dev/sdb
+# Форматирование диска сделать в Windows в exFAT
 
 # Создать папку для диска под локальным пользователем (подставить USER/GROUP)
-sudo mount -t exfat /dev/sdb1 /mnt/hdd -o uid=$(id -u <USER>),gid=$(id -g <GROUP>),umask=022
+sudo mount -t exfat /dev/sdb1 /mnt/hdd -o uid=$(id -u),gid=$(id -g)
 
+# Сброс кэша записи перед отключением
+sync
 # Размонтировать диск перед отключением
 sudo umount /mnt/hdd
 ```
